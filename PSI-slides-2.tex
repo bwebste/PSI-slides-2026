@@ -15,7 +15,7 @@
 \usepackage[all,knot]{xy}
 
 \title
-{Quantum field theory as a theorem machine}
+{If you can't beat 'em, join 'em}
 
 \author[Ben Webster]{Ben Webster}
 \institute[UW/PI]{University of Waterloo\\Perimeter Institute}
@@ -189,6 +189,7 @@
   \newtheorem{prop}[thm]{Proposition}
   \newtheorem{cor}[thm]{Corollary}
   \newtheorem{conj}[thm]{Conjecture}
+  \tikzstyle{mid<}=[decoration={markings, mark=at position 0.5 with {\arrow{<}}}, postaction={decorate}]
 \excise{
 \newenvironment{block}
 \newenvironment{frame}
@@ -232,55 +233,51 @@
 {\centerline{\includegraphics[width=3.5in]{./How-did-I-get-here}}}
 \end{frame}
 
+%These are slides for a 20 minute presentation aimed at incoming PSI masters students, explaining some of the work I've been doing in the last few years.  The goal is to give a sense of what the work is about, and why it is interesting, without going into technical details.  I'm aiming for a fairly light tone.
+
 \section{Introduction}
+
+
 \begin{frame}
-  Physicists have a machine---path integrals, dualities, string
-  theory---that outputs precise predictions about mathematical
-  objects.  Predictions that mathematics cannot currently derive on
-  its own.
+  \begin{minipage}[c]{.53\textwidth}
+I ask myself that sometimes.
   \begin{block}{}
-    Dualities especially create ``secret passages'' between parts of
-    mathematics with little obvious connection.
+And yet, every time I thought I was just doing mathematics, physics kept rearing its ugly head.
   \end{block}
-  Many of these predictions say: {\it two things mathematicians
-    defined independently, for totally different reasons, are
-    secretly the same.}
-  \pause
+
   \bigskip
 
-  My research: take such a prediction and build the mathematics
-  needed to prove it.  The proof is never a formality---it usually
-  requires new structures, and those structures often say something
-  back to the physics.
-  \bigskip
+  \visible<3>{Eventually it reached a point where I couldn't ignore it.  As they say, if you can't beat 'em, join 'em.}
 
-  (I won't compute a cross-section for you.  But if you want to know
-  what your QFT is doing to {\it mathematics}, that's my department.)
+  \end{minipage}\hfill
+  \begin{minipage}[c]{.43\textwidth}
+    \visible<2->{\includegraphics[width=\textwidth]{horse and dog.png}}
+  \end{minipage}
+So, often what I'm trying to do is take ideas circulating in physics and bring that insight into mathematics.  
 \end{frame}
 
-\section{Higgs and Coulomb branches}
-\begin{frame}
-  Start with a 3d gauge theory $\mathcal{T}(G,N)$: a compact group
-  $G_c$ acting on a complex representation $N$, and the induced
-  $\sigma$-model into $T^*N\cong \mathbb{H}\otimes_{\C} N$.  This
-  theory has $\mathcal{N}=4$ supersymmetry.
-  \begin{block}{}
-    With this much SUSY, there are two topological twists
-    $Q_{\color{red} A}$ and $Q_{\color{blue} B}$.
-  \end{block}
-  In a twisted 3d theory, the local operators form a {\bf commutative
-    algebra} with a {\bf Poisson bracket} (the secondary product): the
-  functions on the moduli space of vacua.
-  \bigskip
 
-  Two twists $\Rightarrow$ two Poisson varieties:
-  \[\MH=\Spec Z_{\color{blue} B}(S^2) \qquad \MC=\Spec Z_{\color{red}
-      A}(S^2)\]
-  the {\bf \color{blue} Higgs} and {\bf \color{red} Coulomb} branches.
+\section{3d mirror symmetry}
+\begin{frame}
+I thought that what I was working on $\approx$20 years ago was {\bf almost commutative algebras}: non-commutative algebras that become commutative in a limit.  
+\begin{block}{}
+  In physics terms, you would think about these in terms of a star-product deforming the functions on the phase space of a classical system.  \medskip
+
+  But something special is happening here: since I'm working in an algebraic setting, I can think of these as the holomorphic functions on a complex manifold.  
+\end{block}
+Taking the classical limit gives me a {\bf hyperk\"ahler} structure on this manifold.  
 \end{frame}
-
 \begin{frame}
-  The two branches are not created equal:
+So far, so math.  But at some point I learned:
+\begin{itemize}
+  \item This structure arises whenever we have a 3d quantum field theory with a topological twist (by considering the local operators in the twisted theory).
+  \item<2-> All of the examples I was studying occurred this way!
+  \item<3-> If you have a 3d theory with $\mathcal{N}=4$ supersymmetry, it has two natural classes of topological twists $Q_{\color{red} A}$ and $Q_{\color{blue} B}$, and thus two hyperk\"ahler manifolds associated to it:   the {\bf \color{red} Coulomb}  and {\bf \color{blue} Higgs} branches.
+\end{itemize}
+\end{frame}
+\begin{frame}
+There is a particularly natural 3d gauge theory $\mathcal{T}(G,N)$ for a complex representation $N$ of a complex reductive group $G$.
+In this case, the two branches are not created equal:
   \begin{itemize}
   \item $\MH$ is classical: the hyperk\"ahler quotient
     $\mathbb{H}^n/\!/\!/\!/G_c$ (Hitchin--Karlhede--Lindstr\"om--Ro\v
@@ -290,110 +287,81 @@
       no mathematical definition}.
   \end{itemize}
   \begin{block}{}
-    Braverman--Finkelberg--Nakajima (2016): a rigorous definition,
-    via a convolution algebra built from a moduli space of monopoles.
-    New mathematics, forced into existence by physics.
+    Braverman--Finkelberg--Nakajima (2016): a rigorous definition, but quite technical and difficult to understand.  I should probably emphasize: this definition was new to physicists!
   \end{block}
-  Example: $G=U(1)$ acting on $N=\C^n$ gives
-  $\MC\cong\C^2/\Z_n$.\bigskip
+  A number of my research projects in recent years have focused on understanding this definition and its consequences more deeply.
+  \end{frame}
 
-  These spaces include the nilcones of semisimple Lie algebras, and
-  behave like a new class of ``semisimple Lie algebras,'' vastly
-  generalizing the Killing classification.
-\end{frame}
 
-\section{Duality}
 \begin{frame}
-  {\bf 3d mirror symmetry} (Intriligator--Seiberg, 1996): pairs of
+  \begin{block}{ 3d mirror symmetry (Intriligator--Seiberg, 1996)}  pairs of
   theories $\mathcal{T},\mathcal{T}^!$ equivalent in a way that swaps
   $Q_{\color{red} A}\leftrightarrow Q_{\color{blue} B}$.  In
   particular:
   \[\MH(\mathcal{T})\cong \MC(\mathcal{T}^!)\qquad
     \MC(\mathcal{T})\cong \MH(\mathcal{T}^!)\]
-  To a physicist: a duality.  To a mathematician: an outrageous list
-  of conjectures pairing spaces with no visible relationship---one
-  that generalizes the Langlands duality of semisimple Lie algebras.
-  \begin{block}{Theorem (Braden--Licata--Proudfoot--W.)}
-    For many such dual pairs, the categories $\mathcal{O}$---categories of
-    representations tailored to the geometry of the two
-    branches---are Koszul dual.
-  \end{block}
-  Representation theory on one side determines representation theory
-  on the other.  The physicists consider this obvious; the proof is
-  $\sim$200 pages.  Physics is fast, and theorems are slow---but the
-  theorems are what make the next round of predictions checkable.
+    \end{block}
+  To a physicist: a duality.  To a mathematician: a seemingly inexplicable pairing of spaces with no visible relationship.
+\begin{block}{}
+  Despite the difficulty of understanding this connection, with collaborators, we had guessed a number of examples of dual pairs, and proved some of the consequences of this duality.
+\end{block}
 \end{frame}
 
-\begin{frame}
-  Where this thread is now:
-  \begin{itemize}
-  \item {\bf Functoriality:} gauging on the physics side becomes a
-    Hamiltonian reduction operation between Coulomb branches; this
-    proves, e.g., that $\overline{T^*(G/U)}$ for $\SL{n}$ is a Coulomb
-    branch (conjecture of Bourget et al.).
-  \item {\bf Coherent sheaves:} explicit quiver-style descriptions of
-    the categories of sheaves on resolved Coulomb branches---in
-    physics language, the categories of boundary conditions.
-  \end{itemize}
-  \begin{block}{}
-    These categories are exactly what is needed to make Aganagi\'c's
-    string-theoretic knot homology into algebra.
-  \end{block}
-  \centerline{\ldots which brings me to knots.}
-\end{frame}
 
 \section{Knots and the planar limit}
+
 \begin{frame}
+    \begin{block}{}
+  Chern--Simons theory:
+  \begin{itemize}
+    \item Defined by a ``sum over histories'' (path integral) where the notion of history is a connection on a principal $G$-bundle over a 3-manifold $M$.
+    \item Given a knot $K\subset M$ and a representation $V$ of $G$, we can define the Wilson loop observable $W_{K,V}$, which is an expected value of the trace of the holonomy of the connection around $K$ in the representation $V$.
+  \end{itemize}  
+  \end{block}  
+
   Witten (1989): expectation values of Wilson loops in Chern--Simons
-  theory are knot invariants; $\SU2$ with the fundamental
+  theory are polynomials in a parameter $q$; $\SU2$ with the fundamental
   representation gives the Jones polynomial.
 
   \vspace{1in}
   % picture: a knot (trefoil?) drawn as a Wilson loop in a solid ball,
   % maybe with the CS action floating next to it
 
-  Coloring a knot $K$ by $\bigwedge^{\!m}\C^N$ for all $m,N$ packages
-  into the two-variable {\bf HOMFLYPT polynomial}: a function of $q$
-  and $g=q^N$.  For fixed $K$, these satisfy recursion relations in
-  the coloring $m$: the ``deformed $\hat{A}$-polynomial.''
-  \bigskip
 
-  Physics question ('t Hooft): what happens in the planar limit?
-  \[N\to\infty,\qquad q\to 1,\qquad g=q^N \text{ fixed}\]
 \end{frame}
 
 \begin{frame}
-  Gopakumar--Vafa: large-$N$ Chern--Simons on $S^3$ is a topological
-  string on the resolved conifold.  A knot adds a brane on its
-  conormal Lagrangian $L_K$.
-  \bigskip
+  \begin{block}{Question}
+    How does the invariant for $\bigwedge^{\!m}\C^N$ over $\SU N$ 
+    vary as a function of $m,N,q$? \bigskip
 
-  The brane has its own invariant: {\bf knot contact homology}
-  and its augmentation variety (Ekholm, Ng, \ldots)---defined by
-  counting holomorphic curves, with no reference to Chern--Simons
-  whatsoever.
-  \begin{block}{Prediction (Aganagi\'c--Vafa)}
-    The augmentation variety of $K$ is the classical limit of the
-    recursion relations satisfied by its HOMFLYPT polynomials.
+    There is expected to be a recursion in $m$ and $N$ (the {\bf quantum $\hat{A}$-polynomial}).
   \end{block}
-  Two objects, two communities, no known map between them.  This is
-  exactly the pattern from the start of the talk.
+
+  Physics: 
+  \begin{itemize}
+    \item should be particularly simple in the {\bf planar ('t Hooft) limit}:
+  \[N\to\infty,\qquad q\to 1,\qquad g=q^N \text{ fixed}\]
+\item should have a holographic dual description as a topological string on the resolved conifold, with a brane on the conormal Lagrangian of the knot.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+This dual story has also been studied mathematically, and has its own invariants: the {\bf augmentation variety} of the knot, defined by counting holomorphic curves with boundary on the brane.  This is a Lagrangian subvariety of $(\C^*)^2$ (or $(\C^*)^3$ if we include $g$).  
+
+
+\begin{block}{}
+  Thus we have two independently defined invariants of a knot: the augmentation variety, and the planar limit of the quantum $\hat{A}$-polynomial.  Aganagi\'c--Vafa (2012) predicted that these are equal.
+\end{block}
 \end{frame}
 
 \begin{frame}
   Idea (after Gaiotto--Kannagi--Sanjurjo): treat the coloring $m$ as a
-  {\bf formal variable}.  Then $\mu=q^m$ and the shift
-  $\la\colon m\mapsto m-1$ generate a quantum torus,
-  $\la\mu=q\mu\la$, acting on a module built from skein theory: the
-  {\bf HOMFLYPT difference module}.
+  {\bf formal variable}.  While this does not make sense as a representation of $\SU N$, we can still make skein theoretic calculations.
   \bigskip
 
-  One honest calculation.  The MOY relations give, for the unknot:
-  \[\knotcirc{m} \;=\;
-    \frac{q^{N-m+1}-q^{-N+m-1}}{q^{m}-q^{-m}}\;\knotcirc{m-1}\]
-  Substituting $g=q^N$, $\mu=q^m$ (no $N$, no $m$!):
-  \[\knotcirc{m}\;=\;\frac{qg\mu^{-1}-q^{-1}g^{-1}\mu}{\mu-\mu^{-1}}\,
-    \la\;\knotcirc{m}\]
+For the unknot, substituting $g=q^N$, $\mu=q^m$ (no $N$, no $m$!):
+\[  \tikz[baseline]{\draw[->,very thick] (0,0.5) node[above] {$m$} arc (90:-315:0.5cm);} =\frac{q-q^{-1}}{\mu-\mu} \,  \tikz[baseline]{\draw[->,very thick] (0,0.5)  arc (90:-315:0.5cm); \node at (.75,-.1){$m$}; \node at (-1,.1){$m-1$}; \draw[mid<] (0,0.5) -- (0,-.5);}=\frac{qg\mu^{-1} -q^{-1}g^{-1}\mu}{\mu-\mu^{-1}}\lambda\, \tikz[baseline]{\draw[->,very thick] (0,0.5) node[above] {$m$} arc (90:-315:0.5cm);}\;. \]
   So $\mu-\mu^{-1}-\la\,(qg\mu^{-1}-q^{-1}g^{-1}\mu)$ annihilates the
   unknot: its deformed $\hat{A}$-polynomial, with no computation of
   any knot invariant.
@@ -405,12 +373,10 @@
     abelianized knot contact homology of $K$.
   \end{block}
   \begin{itemize}
-  \item This does not fully prove Aganagi\'c--Vafa, but reduces it to
-    sharply stated algebra conjectures (injectivity of an evaluation
-    map).  Here is exactly what remains.
   \item The proof is purely algebraic: diagram calculus.  No
     holomorphic curves, no path integrals.  Elementary tools,
     non-elementary conclusion.
+  \item First explicit mathematical connection between these two worlds.
   \end{itemize}
   This paper owes a large debt to conversations with Davide
   Gaiotto---the kind of accident that only happens in this building.
@@ -418,43 +384,17 @@
 
 \section{Coda}
 \begin{frame}
-  The same shape, twice:
+Just two examples of these sorts of connections:
   \begin{itemize}
   \item Physics predicted equalities between independently defined
     objects: Higgs $\leftrightarrow$ Coulomb; recursions
     $\leftrightarrow$ augmentation varieties.
-  \item Proving them required inventing structures---BFN construction,
-    symplectic duality, difference modules---that now have lives of
+  \item Proving them required inventing structures that now have lives of
     their own.
   \end{itemize}
-  \begin{block}{}
-    And the machine keeps producing: Aganagi\'c predicts knot
-    homologies for $\mathfrak{gl}(m|n)$---$\mathcal{N}=2$ physics,
-    matrix factorizations---with no mathematical construction yet.
-  \end{block}
-  The mathematics involved is learnable: the planar-limit proof runs
-  on a diagram calculus you could pick up in weeks, not years.
-  \bigskip
-
-  Physics is decades ahead of the proofs.  Catching up is a full-time
-  job, with room for help.
+\begin{block}{}
+  Physics and mathematics have a few centuries of profitable interaction behind them, and yet we keep finding new ways to surprise each other.  
+\end{block}
 \end{frame}
-
-\excise{
-%% Spare parts: one more frontier flavor for the ``where this thread
-%% is now'' frame, if pace allows.  Both name-drop well at PI; neither
-%% gets more than a sentence.
-\begin{frame}
-  \begin{itemize}
-  \item Costello--Creutzig--Gaiotto: the Coulomb branch can be
-    recovered from a vertex operator algebra built on the Higgs
-    branch---the only known passage from Higgs to Coulomb that
-    doesn't route through the full QFT.
-  \item Quantum Hikita (with Gaiotto et al.): twisted traces of a
-    quantization of $\MH$ match the quantum cohomology of the mirror
-    $\MC$.
-  \end{itemize}
-\end{frame}
-}
 
 \end{document}
